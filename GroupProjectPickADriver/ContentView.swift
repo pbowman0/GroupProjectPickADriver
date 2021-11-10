@@ -6,83 +6,61 @@
 //
 
 import SwiftUI
-var studentNames1 = [""]
-var studentNames2 = [""]
-var studentNames3 = [""]
-var studentNames4 = [""]
-var studentNames5 = [""]
-var studentNames6 = [""]
-var studentNames7 = [""]
-var studentNames8 = [""]
+
+
+
+
+
+
+
+
 struct ContentView: View {
     @State private var isEditing = false
     @State private var studentName = ""
     var body: some View {
-        Form {
-            Section(header: Text("Class One")) {
-                TextField("Please enter student name", text: $studentName) { isEditing in
-                    self.isEditing = isEditing
-                }
-                onCommit: {
-                    studentNames1.append(studentName)
-                }
-                     }
-            Section(header: Text("Class Two")) {
-                TextField("Please enter student name", text: $studentName) { isEditing in
-                    self.isEditing = isEditing
-                }
-                onCommit: {
-                    studentNames2.append(studentName)
-                }
-                     }
-            Section(header: Text("Class Three")) {
-                TextField("Please enter student name", text: $studentName) { isEditing in
-                    self.isEditing = isEditing
-                }
-                onCommit: {
-                    studentNames3.append(studentName)
-                }
-                     }
-            Section(header: Text("Class Four")) {
-                TextField("Please enter student name", text: $studentName) { isEditing in
-                    self.isEditing = isEditing
-                }
-                onCommit: {
-                    studentNames4.append(studentName)
-                }
-                     }
-            Section(header: Text("Class Five")) {
-                TextField("Please enter student name", text: $studentName) { isEditing in
-                    self.isEditing = isEditing
-                }
-                onCommit: {
-                    studentNames5.append(studentName)
-                }
-                     }
-            Section(header: Text("Class Six")) {
-                TextField("Please enter student name", text: $studentName) { isEditing in
-                    self.isEditing = isEditing
-                }
-                onCommit: {
-                    studentNames6.append(studentName)
-                }
-                     }
-            Section(header: Text("Class Seven")) {
-                TextField("Please enter student name", text: $studentName) { isEditing in
-                    self.isEditing = isEditing
-                }
-                onCommit: {
-                    studentNames7.append(studentName)
-                }
-                     }
-            Section(header: Text("Class Eight")) {
-                TextField("Please enter student name", text: $studentName) { isEditing in
-                    self.isEditing = isEditing
-                }
-                onCommit: {
-                    studentNames8.append(studentName)
-                }
-                     }
+        NavigationView{
+            List{
+                NavigationLink(
+                    destination: FirstPeriod(),
+                    label: {
+                        Text("Enter Class One")
+                    })
+                NavigationLink(
+                    destination: SecondPeriod(),
+                    label: {
+                        Text("Enter Class Two")
+                    })
+                NavigationLink(
+                    destination: ThirdPeriod(),
+                    label: {
+                        Text("Enter Class Three")
+                    })
+                NavigationLink(
+                    destination: FourthPeriod(),
+                    label: {
+                        Text("Enter Class Four")
+                    })
+                NavigationLink(
+                    destination: FifthPeriod(),
+                    label: {
+                        Text("Enter Class Five")
+                    })
+                NavigationLink(
+                    destination: SixthPeriod(),
+                    label: {
+                        Text("Enter Class Six")
+                    })
+                NavigationLink(
+                    destination: SeventhPeriod(),
+                    label: {
+                        Text("Enter Class Seven")
+                    })
+                NavigationLink(
+                    destination: EighthPeriod(),
+                    label: {
+                        Text("Enter Class Eight")
+                    })
+            }
         }
         
     }

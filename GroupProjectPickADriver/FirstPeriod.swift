@@ -6,10 +6,21 @@
 //
 
 import SwiftUI
-
+var studentNames1 = [""]
 struct FirstPeriod: View {
+    @State private var studentName = ""
+    @State private var isEditing = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+        Section(header: Text("Class One")) {
+            TextField("Please enter student name", text: $studentName) { isEditing in
+                self.isEditing = isEditing
+            }
+            onCommit: {
+                studentNames1.append(studentName)
+            }
+                 }
+        }
     }
 }
 
