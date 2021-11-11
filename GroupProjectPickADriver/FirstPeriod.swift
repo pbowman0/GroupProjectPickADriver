@@ -12,14 +12,14 @@ struct FirstPeriod: View {
     @State private var isEditing = false
     var body: some View {
         List {
-        Section(header: Text("Class One")) {
-            TextField("Please enter student name", text: $studentName) { isEditing in
-                self.isEditing = isEditing
+            Section(header: Text("Class One")) {
+                TextField("Please enter student name", text: $studentName) { isEditing in
+                    self.isEditing = isEditing
+                }
+                onCommit: {
+                    studentNames1.append(studentName)
+                }
             }
-            onCommit: {
-                studentNames1.append(studentName)
-            }
-                 }
         }
     }
 }
@@ -29,3 +29,4 @@ struct FirstPeriod_Previews: PreviewProvider {
         FirstPeriod()
     }
 }
+

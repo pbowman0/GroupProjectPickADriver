@@ -53,6 +53,7 @@ struct ContentView: View {
                         Text("Enter Class Eight")
                     })
             }
+            .navigationTitle("Pick a Peter")
         }
         
     }
