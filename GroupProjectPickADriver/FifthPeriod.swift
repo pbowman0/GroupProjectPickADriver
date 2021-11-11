@@ -11,6 +11,7 @@ struct FifthPeriod: View {
     @State private var studentName = ""
     @State private var isEditing = false
     var body: some View {
+        List {
         Section(header: Text("Class Five")) {
             TextField("Please enter student name", text: $studentName) { isEditing in
                 self.isEditing = isEditing
@@ -19,6 +20,7 @@ struct FifthPeriod: View {
                 studentNames5.append(studentName)
             }
                  }
+        }
     }
 }
 

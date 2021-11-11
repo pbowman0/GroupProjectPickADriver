@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
-
 var studentNames2 = [""]
 struct SecondPeriod: View {
     @State private var studentName = ""
     @State private var isEditing = false
     var body: some View {
         List {
-        Section(header: Text("Class One")) {
+        Section(header: Text("Class Two")) {
             TextField("Please enter student name", text: $studentName) { isEditing in
                 self.isEditing = isEditing
             }

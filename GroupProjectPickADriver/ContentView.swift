@@ -6,14 +6,6 @@
 //
 
 import SwiftUI
-
-
-
-
-
-
-
-
 struct ContentView: View {
     @State private var isEditing = false
     @State private var studentName = ""
