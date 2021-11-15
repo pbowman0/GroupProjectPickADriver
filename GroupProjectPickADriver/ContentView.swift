@@ -65,3 +65,9 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+struct Driver: Identifiable, Codable {
+var id = UUID()
+var period = Int()
+var name = String()
+}
