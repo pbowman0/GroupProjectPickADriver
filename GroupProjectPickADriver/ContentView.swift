@@ -13,7 +13,7 @@ struct ContentView: View {
         NavigationView{
             List{
                 NavigationLink(
-                    destination: FirstPeriod(),
+                    destination: FirstPeriod(names: DriverList()),
                     label: {
                         Text("Enter Class One")
                     })
