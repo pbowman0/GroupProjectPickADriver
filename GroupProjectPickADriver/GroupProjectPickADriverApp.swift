@@ -11,7 +11,7 @@ import SwiftUI
 struct GroupProjectPickADriverApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(names: DriverList())
         }
     }
 }

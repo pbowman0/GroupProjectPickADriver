@@ -7,6 +7,7 @@
 
 import SwiftUI
 struct ContentView: View {
+    @ObservedObject var  names: DriverList
     @State private var isEditing = false
     @State private var studentName = ""
     var body: some View {
@@ -53,7 +54,7 @@ struct ContentView: View {
                         Text("Enter Class Eight")
                     })
             }
-            .navigationTitle("Pick a Peter")
+            .navigationTitle("Pick a Driver")
         }
         
     }
@@ -62,7 +63,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(names: DriverList())
     }
 }
 
