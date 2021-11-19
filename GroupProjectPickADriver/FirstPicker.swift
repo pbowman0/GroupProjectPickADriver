@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-
+let randomName = things.randomElement()!
 struct FirstPicker: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("\(randomName)")
     }
 }
 
