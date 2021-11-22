@@ -19,37 +19,37 @@ struct ContentView: View {
                         Text("Enter Class One")
                     })
                 NavigationLink(
-                    destination: SecondPeriod(),
+                    destination: SecondPeriod(names: DriverList()),
                     label: {
                         Text("Enter Class Two")
                     })
                 NavigationLink(
-                    destination: ThirdPeriod(),
+                    destination: ThirdPeriod(names: DriverList()),
                     label: {
                         Text("Enter Class Three")
                     })
                 NavigationLink(
-                    destination: FourthPeriod(),
+                    destination: FourthPeriod(names: DriverList()),
                     label: {
                         Text("Enter Class Four")
                     })
                 NavigationLink(
-                    destination: FifthPeriod(),
+                    destination: FifthPeriod(names: DriverList()),
                     label: {
                         Text("Enter Class Five")
                     })
                 NavigationLink(
-                    destination: SixthPeriod(),
+                    destination: SixthPeriod(names: DriverList()),
                     label: {
                         Text("Enter Class Six")
                     })
                 NavigationLink(
-                    destination: SeventhPeriod(),
+                    destination: SeventhPeriod(names: DriverList()),
                     label: {
                         Text("Enter Class Seven")
                     })
                 NavigationLink(
-                    destination: EighthPeriod(),
+                    destination: EighthPeriod(names: DriverList()),
                     label: {
                         Text("Enter Class Eight")
                     })

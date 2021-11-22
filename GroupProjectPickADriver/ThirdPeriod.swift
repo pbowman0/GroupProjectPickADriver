@@ -8,24 +8,36 @@
 import SwiftUI
 var studentNames3 = [""]
 struct ThirdPeriod: View {
+    @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
+    
     var body: some View {
-        List {
-        Section(header: Text("Class Three")) {
-            TextField("Please enter student name", text: $studentName) { isEditing in
-                self.isEditing = isEditing
+        NavigationView {
+            List {
+                ForEach(things, id: \.self) { thing in Text(thing)
+                }
+                .onMove(perform: { indices, newOffset in
+                    things.move(fromOffsets: indices, toOffset: newOffset)
+                })
+                .onDelete(perform: { indexSet in
+                    things.remove(atOffsets: indexSet)
+                })
+                Section {
+                    NavigationLink(destination: FirstPicker(),
+                                   label: {
+                                    Text("CHOOSE")
+                                   })
+                }
             }
-            onCommit: {
-                studentNames3.append(studentName)
-            }
-                 }
+            .navigationBarTitle("Class One", displayMode: .inline)
+            .navigationBarItems(leading: EditButton())
         }
     }
 }
 
 struct ThirdPeriod_Previews: PreviewProvider {
     static var previews: some View {
-        ThirdPeriod()
+        ThirdPeriod(names: DriverList())
     }
 }
