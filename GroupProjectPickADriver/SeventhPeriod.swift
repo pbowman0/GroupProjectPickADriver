@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-var studentNames7 = [""]
+var studentNames7 = ["Colin", "Nathan", "Timothy", "Paige", "Peter"]
 struct SeventhPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
@@ -15,22 +15,29 @@ struct SeventhPeriod: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(things, id: \.self) { thing in Text(thing)
+                ForEach(studentNames7, id: \.self) { thing in Text(thing)
                 }
                 .onMove(perform: { indices, newOffset in
-                    things.move(fromOffsets: indices, toOffset: newOffset)
+                    studentNames7.move(fromOffsets: indices, toOffset: newOffset)
                 })
                 .onDelete(perform: { indexSet in
-                    things.remove(atOffsets: indexSet)
+                    studentNames7.remove(atOffsets: indexSet)
                 })
                 Section {
-                    NavigationLink(destination: FirstPicker(),
+                    NavigationLink(destination: SeventhEditor(),
+                                   label: {
+                                       Text("Edit")
+                                   })
+                        .padding()
+                    }
+                Section {
+                    NavigationLink(destination: SeventhPicker(),
                                    label: {
                                     Text("CHOOSE")
                                    })
                 }
             }
-            .navigationBarTitle("Class One", displayMode: .inline)
+            .navigationBarTitle("Class Seven", displayMode: .inline)
             .navigationBarItems(leading: EditButton())
         }
     }

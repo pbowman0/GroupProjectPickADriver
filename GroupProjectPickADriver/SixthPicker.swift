@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct SixthPicker: View {
+    let randomName6 = studentNames6.randomElement()!
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("\(randomName6)!")
     }
 }
 

@@ -8,10 +8,19 @@
 import SwiftUI
 
 struct SecondEditor: View {
+    @State private var studentName2 = ""
+    @State private var isEditing = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextField("Please enter student name", text: $studentName2) { isEditing in
+            self.isEditing = isEditing
+        }
+        onCommit: {
+            studentNames2.append(studentName2)
+        }
+        .padding()
     }
 }
+
 
 struct SecondEditor_Previews: PreviewProvider {
     static var previews: some View {

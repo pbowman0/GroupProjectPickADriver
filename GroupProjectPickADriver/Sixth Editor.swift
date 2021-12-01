@@ -7,14 +7,22 @@
 
 import SwiftUI
 
-struct Sixth_Editor: View {
+struct SixthEditor: View {
+    @State private var studentName6 = ""
+    @State private var isEditing = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextField("Please enter student name", text: $studentName6) { isEditing in
+            self.isEditing = isEditing
+        }
+        onCommit: {
+            studentNames6.append(studentName6)
+        }
+        .padding()
     }
 }
 
-struct Sixth_Editor_Previews: PreviewProvider {
+struct SixthEditor_Previews: PreviewProvider {
     static var previews: some View {
-        Sixth_Editor()
+        SixthEditor()
     }
 }

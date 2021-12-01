@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-let randomName = things.randomElement()!
+let randomName1 = studentNames1.randomElement()!
 struct FirstPicker: View {
     var body: some View {
-        Text("\(randomName)")
+        Text("\(randomName1)!")
     }
 }
 

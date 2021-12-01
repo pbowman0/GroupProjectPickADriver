@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct FirstEditor: View {
+    @State private var studentName = ""
+    @State private var isEditing = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        TextField("Please enter student name", text: $studentName) { isEditing in
+            self.isEditing = isEditing
+        }
+        onCommit: {
+            studentNames1.append(studentName)
+        }
+        .padding()
     }
 }
 

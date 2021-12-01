@@ -6,37 +6,50 @@
 //
 
 import SwiftUI
-var studentNames1 = [""]
-var things = ["Colin", "Nathan", "Timothy", "Paige", "Peter"]
+
+var studentNames1 = ["Colin", "Nathan", "Timothy", "Paige", "Peter"]
 struct FirstPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
     
     
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(things, id: \.self) { thing in Text(thing)
-                }
-                .onMove(perform: { indices, newOffset in
-                    things.move(fromOffsets: indices, toOffset: newOffset)
-                })
-                .onDelete(perform: { indexSet in
-                    things.remove(atOffsets: indexSet)
-                })
-                Section {
-                    NavigationLink(destination: FirstPicker(),
-                                   label: {
-                                    Text("CHOOSE")
-                                   })
-                }
+        var body: some View {
+        
+        List {
+            ForEach(studentNames1, id: \.self) { studentName in Text(studentName)
             }
-            .navigationBarTitle("Class One", displayMode: .inline)
-            .navigationBarItems(leading: EditButton())
+            .onMove(perform: { indices, newOffset in
+            studentNames1.move(fromOffsets: indices, toOffset: newOffset)
+            })
+            .onDelete(perform: { indexSet in
+            studentNames1.remove(atOffsets: indexSet)
+            })
+            Section {
+                NavigationLink(destination: FirstEditor(),
+                               label: {
+                                   Text("Edit")
+                               })
+                    .padding()
+                }
+            
+            Section {
+            NavigationLink(destination: FirstPicker(),
+                           label: {
+                               Text("CHOOSE")
+                           })
+                .padding()
+            }
+            
+        
+            
+        .navigationBarTitle("Class One", displayMode: .inline)
+        .navigationBarItems(leading: EditButton())
+            
+        }
         }
     }
-}
+
 
 
 struct FirstPeriod_Previews: PreviewProvider {

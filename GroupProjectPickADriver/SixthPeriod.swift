@@ -6,34 +6,43 @@
 //
 
 import SwiftUI
-var studentNames6 = [""]
+var studentNames6 = ["Colin", "Nathan", "Timothy", "Paige", "Peter"]
 struct SixthPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
     
     var body: some View {
-        NavigationView {
+       
             List {
-                ForEach(things, id: \.self) { thing in Text(thing)
+                ForEach(studentNames6, id: \.self) { thing in Text(thing)
                 }
                 .onMove(perform: { indices, newOffset in
-                    things.move(fromOffsets: indices, toOffset: newOffset)
+                    studentNames6.move(fromOffsets: indices, toOffset: newOffset)
                 })
                 .onDelete(perform: { indexSet in
-                    things.remove(atOffsets: indexSet)
+                    studentNames6.remove(atOffsets: indexSet)
                 })
+            }
                 Section {
-                    NavigationLink(destination: FirstPicker(),
+                    NavigationLink(destination: SixthEditor(),
+                                   label: {
+                                       Text("Edit")
+                                   })
+                        .padding()
+                    }
+                Section {
+                    NavigationLink(destination: SixthPicker(),
                                    label: {
                                     Text("CHOOSE")
                                    })
+                        .padding()
                 }
-            }
-            .navigationBarTitle("Class One", displayMode: .inline)
+            
+            .navigationBarTitle("Class Six", displayMode: .inline)
             .navigationBarItems(leading: EditButton())
         }
-    }
+    
 }
 
 struct SixthPeriod_Previews: PreviewProvider {
