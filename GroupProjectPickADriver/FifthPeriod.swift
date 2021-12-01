@@ -25,7 +25,7 @@ struct FifthPeriod: View {
                 Section {
                     NavigationLink(destination: FifthEditor(),
                                    label: {
-                                    Text("Edit")
+                                    Text("New Student")
                                    })
                         .padding()
                 }

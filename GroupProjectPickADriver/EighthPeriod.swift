@@ -25,7 +25,7 @@ struct EighthPeriod: View {
                 Section {
                     NavigationLink(destination: EighthEditor(),
                                    label: {
-                                    Text("Edit")
+                                    Text("New Student")
                                    })
                         .padding()
                 }

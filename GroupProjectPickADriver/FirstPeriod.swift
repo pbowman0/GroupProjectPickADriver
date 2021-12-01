@@ -24,7 +24,7 @@ struct FirstPeriod: View {
             Section {
                 NavigationLink(destination: FirstEditor(),
                                label: {
-                                Text("Edit")
+                                Text("New Student")
                                })
                     .padding()
             }
