@@ -11,7 +11,6 @@ struct SeventhPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
-    
     var body: some View {
         NavigationView {
             List {
@@ -26,10 +25,10 @@ struct SeventhPeriod: View {
                 Section {
                     NavigationLink(destination: SeventhEditor(),
                                    label: {
-                                       Text("Edit")
+                                    Text("Edit")
                                    })
                         .padding()
-                    }
+                }
                 Section {
                     NavigationLink(destination: SeventhPicker(),
                                    label: {

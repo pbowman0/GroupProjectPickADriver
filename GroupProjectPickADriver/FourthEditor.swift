@@ -1,13 +1,13 @@
 //
-//  Fourth Editor.swift
+//  FourthEditor.swift
 //  GroupProjectPickADriver
 //
-//  Created by Student on 11/22/21.
+//  Created by Student on 12/1/21.
 //
 
 import SwiftUI
 
-struct FourthEditor: View {
+struct Fourth_Editor: View {
     @State private var studentName4 = ""
     @State private var isEditing = false
     var body: some View {
@@ -19,11 +19,10 @@ struct FourthEditor: View {
         }
         .padding()
     }
-
 }
 
-struct FourthEditor_Previews: PreviewProvider {
+struct Fourth_Editor_Previews: PreviewProvider {
     static var previews: some View {
-        FourthEditor()
+        Fourth_Editor()
     }
 }

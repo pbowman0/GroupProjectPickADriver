@@ -24,12 +24,12 @@ struct ThirdPeriod: View {
                     studentNames3.remove(atOffsets: indexSet)
                 })
                 Section {
-                                    NavigationLink(destination:ThirdEditor(),
-                                                   label: {
-                                                       Text("Edit")
-                                                   })
-                                        .padding()
-                                    }
+                    NavigationLink(destination:ThirdEditor(),
+                                   label: {
+                                    Text("Edit")
+                                   })
+                        .padding()
+                }
                 Section {
                     NavigationLink(destination: ThirdPicker(),
                                    label: {

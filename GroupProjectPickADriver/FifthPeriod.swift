@@ -11,7 +11,6 @@ struct FifthPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
-    
     var body: some View {
         NavigationView {
             List {
@@ -26,10 +25,10 @@ struct FifthPeriod: View {
                 Section {
                     NavigationLink(destination: FifthEditor(),
                                    label: {
-                                       Text("Edit")
+                                    Text("Edit")
                                    })
                         .padding()
-                    }
+                }
                 Section {
                     NavigationLink(destination: FifthPicker(),
                                    label: {

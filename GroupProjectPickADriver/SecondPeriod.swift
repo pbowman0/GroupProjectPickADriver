@@ -11,31 +11,29 @@ struct SecondPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
-    
     var body: some View {
-       
-            List {
-                ForEach(studentNames2, id: \.self) { studentName in Text(studentName)
-                }
-                .onMove(perform: { indices, newOffset in
-                    studentNames2.move(fromOffsets: indices, toOffset: newOffset)
-                })
-                .onDelete(perform: { indexSet in
-                    studentNames2.remove(atOffsets: indexSet)
-                })
-                Section {
-                    NavigationLink(destination: SecondEditor(),
-                                   label: {
-                                       Text("Edit")
-                                   })
-                        .padding()
-                    }
-                Section {
-                    NavigationLink(destination: SecondPicker(),
-                                   label: {
-                                    Text("CHOOSE")
-                                   })
-                }
+        List {
+            ForEach(studentNames2, id: \.self) { studentName in Text(studentName)
+            }
+            .onMove(perform: { indices, newOffset in
+                studentNames2.move(fromOffsets: indices, toOffset: newOffset)
+            })
+            .onDelete(perform: { indexSet in
+                studentNames2.remove(atOffsets: indexSet)
+            })
+            Section {
+                NavigationLink(destination: SecondEditor(),
+                               label: {
+                                Text("Edit")
+                               })
+                    .padding()
+            }
+            Section {
+                NavigationLink(destination: SecondPicker(),
+                               label: {
+                                Text("CHOOSE")
+                               })
+            }
             
             .navigationBarTitle("Class Two", displayMode: .inline)
             .navigationBarItems(leading: EditButton())
