@@ -11,6 +11,7 @@ struct SixthPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
+    var selected = false
     var body: some View {
         List {
             ForEach(studentNames6, id: \.self) { thing in Text(thing)
@@ -21,23 +22,31 @@ struct SixthPeriod: View {
             .onDelete(perform: { indexSet in
                 studentNames6.remove(atOffsets: indexSet)
             })
+            Section {
+                NavigationLink(destination: SixthEditor(),
+                               label: {
+                                Text("New Student")
+                               })
+                    .padding()
+            }
+            Section {
+                NavigationLink(destination: SixthPicker(),
+                               label: {
+                                Text("CHOOSE")
+                               })
+                    .padding()
+            }
+            .navigationBarTitle("Class Six", displayMode: .inline)
+            .navigationBarItems(leading: EditButton())
         }
-        Section {
-            NavigationLink(destination: SixthEditor(),
-                           label: {
-                            Text("New Student")
-                           })
-                .padding()
+        .onTapGesture {
+            if selected == false {
+                var selected = true
+            }
+            else {
+                var selected = false
+            }
         }
-        Section {
-            NavigationLink(destination: SixthPicker(),
-                           label: {
-                            Text("CHOOSE")
-                           })
-                .padding()
-        }
-        .navigationBarTitle("Class Six", displayMode: .inline)
-        .navigationBarItems(leading: EditButton())
     }
 }
 

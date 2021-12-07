@@ -11,6 +11,7 @@ struct FourthPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
+    var selected = false
     var body: some View {
         List {
             ForEach(studentNames4, id: \.self) { studentName in Text(studentName)
@@ -34,9 +35,17 @@ struct FourthPeriod: View {
                                 Text("CHOOSE")
                                })
             }
+            .navigationBarTitle("Class Four", displayMode: .inline)
+            .navigationBarItems(leading: EditButton())
         }
-        .navigationBarTitle("Class Four", displayMode: .inline)
-        .navigationBarItems(leading: EditButton())
+        .onTapGesture {
+            if selected == false {
+                var selected = true
+            }
+            else {
+                var selected = false
+            }
+        }
     }
 }
 
