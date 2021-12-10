@@ -15,15 +15,6 @@ struct FirstPeriod: View {
     var body: some View {
         List {
             ForEach(studentNames1, id: \.self) { studentName in Text(studentName)
-                .opacity(selected ? 0.2 : 1)
-                .onTapGesture {
-                    if selected == false {
-                        var selected = true
-                    }
-                    if selected == true {
-                        var selected = false
-                    }
-                }
             }
             .onMove(perform: { indices, newOffset in
                 studentNames1.move(fromOffsets: indices, toOffset: newOffset)
@@ -48,6 +39,16 @@ struct FirstPeriod: View {
             .navigationBarTitle("Class One", displayMode: .inline)
             .navigationBarItems(leading: EditButton())
         }
+  /*      Text(studentName)
+            .opacity(selected ? 0.2 : 1)
+            .onTapGesture {
+                if selected == false {
+                    var selected = true
+                }
+                if selected == true {
+                    var selected = false
+                }
+            } */
     }
 }
 
