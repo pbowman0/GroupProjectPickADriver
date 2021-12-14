@@ -19,8 +19,10 @@ class DriverList: ObservableObject {
             if let decoded = try? decoder.decode([Driver].self, from: names) {
                 self.names = decoded
                 return
-            } }
-        names = [] }
+            }
+        }
+        names = []
+    }
 }
 
 import Foundation

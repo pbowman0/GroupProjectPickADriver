@@ -7,7 +7,7 @@
 
 import SwiftUI
 var studentNames1 = ["Colin", "Nathan", "Timothy", "Paige", "Peter"]
-struct FirstPeriod: View {
+    struct FirstPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
