@@ -7,14 +7,18 @@
 
 import SwiftUI
 var studentNames1 = ["Colin", "Nathan", "Timothy", "Paige", "Peter"]
-    struct FirstPeriod: View {
+struct FirstPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
-    var selected = false
+    @State private var faded = false
     var body: some View {
         List {
             ForEach(studentNames1, id: \.self) { studentName in Text(studentName)
+                .opacity(faded ? 0.2 : 1)
+                .onTapGesture {
+                    faded.toggle()
+                }
             }
             .onMove(perform: { indices, newOffset in
                 studentNames1.move(fromOffsets: indices, toOffset: newOffset)
@@ -39,16 +43,12 @@ var studentNames1 = ["Colin", "Nathan", "Timothy", "Paige", "Peter"]
             .navigationBarTitle("Class One", displayMode: .inline)
             .navigationBarItems(leading: EditButton())
         }
-  /*      Text(studentName)
-            .opacity(selected ? 0.2 : 1)
-            .onTapGesture {
-                if selected == false {
-                    var selected = true
-                }
-                if selected == true {
-                    var selected = false
-                }
-            } */
+        /*
+         .opacity(faded ? 0.2 : 1)
+         .onTapGesture {
+             faded.toggle()
+         }
+         */
     }
 }
 
