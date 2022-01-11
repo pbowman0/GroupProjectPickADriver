@@ -9,16 +9,12 @@ import SwiftUI
 var studentNames1 = ["Colin", "Nathan", "Timothy", "Paige", "Peter"]
 struct FirstPeriod: View {
     @ObservedObject var names: DriverList
-    @State private var studentName = ""
     @State private var isEditing = false
-    @State private var faded = false
+    @State private var studentName = ""
     var body: some View {
         List {
-            ForEach(studentNames1, id: \.self) { studentName in Text(studentName)
-                .opacity(faded ? 0.2 : 1)
-                .onTapGesture {
-                    faded.toggle()
-                }
+            ForEach(studentNames1, id: \.self) { item in
+                CustomTextView(text: "\(item)")
             }
             .onMove(perform: { indices, newOffset in
                 studentNames1.move(fromOffsets: indices, toOffset: newOffset)
@@ -43,19 +39,25 @@ struct FirstPeriod: View {
             .navigationBarTitle("Class One", displayMode: .inline)
             .navigationBarItems(leading: EditButton())
         }
-        /*
-         .opacity(faded ? 0.2 : 1)
-         .onTapGesture {
-             faded.toggle()
-         }
-         */
     }
 }
-
 
 struct FirstPeriod_Previews: PreviewProvider {
     static var previews: some View {
         FirstPeriod(names: DriverList())
+    }
+}
+
+struct CustomTextView: View {
+    @State private var faded = false
+    let text: String
+    var body: some View {
+        Text(text)
+            .padding()
+            .onTapGesture {
+                faded.toggle()
+            }
+            .opacity(faded ? 0.2 : 1)
     }
 }
 
