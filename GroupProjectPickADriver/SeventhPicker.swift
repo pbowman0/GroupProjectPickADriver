@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
-let randomName7 = studentNames7.randomElement()!
 struct SeventhPicker: View {
     var body: some View {
-        Text("\(randomName7)!")
+        Text("\(studentNames7.randomElement() ?? "Error: Could not pick random element")")
     }
 }
 
