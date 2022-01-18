@@ -11,7 +11,7 @@ struct SecondPeriod: View {
     @ObservedObject var names: DriverList
     @State private var studentName = ""
     @State private var isEditing = false
-    var selected = false
+    @State private var selected = false
     var body: some View {
         List {
             ForEach(studentNames2, id: \.self) { studentName in Text(studentName)
@@ -41,10 +41,10 @@ struct SecondPeriod: View {
         }
         .onTapGesture {
             if selected == false {
-                var selected = true
+                selected = true
             }
             else {
-                var selected = false
+                selected = false
             }
         }
     }

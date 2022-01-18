@@ -8,7 +8,12 @@
 import SwiftUI
 struct FirstPicker: View {
     var body: some View {
-        Text("\(studentNames1.randomElement() ?? "Error: Could not pick random element")")
+        List{
+            ForEach(studentNames1, id: \.self){ student in
+                Text(student)
+            }
+        }
+        //Text("\(studentNames1.randomElement() ?? "Error: Could not pick random element")")
     }
 }
 
